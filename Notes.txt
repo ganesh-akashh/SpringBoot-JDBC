@@ -1,0 +1,59 @@
+Spring: (Java Framework) to develop and test applications.
+
+JDBC (Java DataBase Connectivity)
+
+Maven => It is a build tool for java Application.
+
+Dependicies => A dependency is an external Java library or module that your project relies on to implement certain functionalities.
+
+
+SpringBoot : Framework which takes care of all the configuration and makes it easier to spring applications.
+
+
+
+
+Bean => It is an object managed by IOC (Dependency Injection).
+getBean => Belongs to an interface Application Context.
+@Component: (Denotes the springboot that it is reponsible for creating an object);
+@AutoWired => Automattic dependency injection (Creates objects for the class is managed by Spring Inversion of Control)
+
+
+Eg:
+
+public static void main(String[] args) {
+		ApplicationContext context=SpringApplication.run(Demo1Application.class, args);
+
+		Alien obj =  context.getBean(Alien.class);
+		obj.code();
+
+}
+
+package com.example.demo1;
+
+
+@Component
+public class Alien {
+    @Autowired
+    Laptop lap;
+
+    public void code() {
+        lap.compile();
+    }
+}
+
+
+@Component
+public class Laptop {
+
+    public void compile() {
+       System.out.println("Hello World!!");
+    }
+
+}
+
+
+
+@Scope("prototype")  => It is used to avoid the SingleTon class.
+
+
+Repository Layer => Used for connecting to databases.
